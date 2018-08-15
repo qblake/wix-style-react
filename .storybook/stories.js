@@ -115,6 +115,7 @@ import '../stories/Highlighter.story.js'; // Highlighter
 
 // Components API
 import '../stories/FormField.story.js';
+import '../stories/AddNewItem/AddNewItem.story.js';
 import '../stories/Layout/index.story.js';
 import '../stories/Layout';
 
