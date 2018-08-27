@@ -41,11 +41,10 @@ class ImageViewer extends WixComponent {
       ...DEFAULT_TOOLTIP_PROPS,
       ...this.props.tooltipProps
     };
-
     return (
       <div className={classes} style={{width, height}}>
         {!imageUrl &&
-        <AddItem data-hook="add-image" height={height} onClick={onAddImage} tooltipProps={{...tooltipProps, content: addImageInfo}}/>
+        <AddItem onClick={onAddImage} theme="image" size="small" dataHook="add-image" tooltipProps={{...tooltipProps, content: addImageInfo}}/>
         }
         {!!imageUrl &&
         <div className={style.changeLogoContainer}>

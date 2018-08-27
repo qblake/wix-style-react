@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 import {Col, Row} from '../../src/Grid';
-import AddNewItem from '../../src/AddNewItem/AddNewItem';
+import AddItem from '../../src/AddItem/AddItem';
 import PlaceHolder from '../assets/ImagePlaceholder';
 import Card from 'wix-style-react/Card';
 
@@ -38,7 +38,7 @@ const WithoutActionExample = () => (
         <MockCard/>
       </Col>
       <Col span={6}>
-        <AddNewItem dataHook="add-without-action" size="medium"/>
+        <AddItem dataHook="add-without-action" size="medium"/>
       </Col>
     </Row>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AddNewItem from '../../src/AddNewItem/AddNewItem';
+import AddItem from '../../src/AddItem/AddItem';
 import Card from 'wix-style-react/Card';
 import More from 'wix-style-react/new-icons/More';
 import ImagePlaceholder from '../assets/SectionImagePlaceholder';
@@ -43,9 +43,9 @@ const WithinExample = ({theme, title}) => (
       <Card.Header title={title}/>
       <Card.Content>
         <Row>
-          <AddNewItem dataHook="add-as-card" theme={theme} size="tiny">
+          <AddItem dataHook="add-as-card" theme={theme} size="tiny">
           Add New Item
-          </AddNewItem>
+          </AddItem>
         </Row>
       </Card.Content>
     </Card>

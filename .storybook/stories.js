@@ -27,7 +27,6 @@ import '../stories/StatsWidget'; // 2.7 StatsWidget
 import '../stories/Grid';
 import '../stories/Card';
 
-
 // 3. Inputs
 import '../stories/TextField'; // 3.1 Text Field
 import '../stories/Input'; // 3.1 + Input
@@ -45,8 +44,7 @@ import '../stories/Search/index.story'; // 3.9 Search
 import '../stories/ImageViewer/index.story'; // 3.10 ImageViewer
 import '../stories/FilePicker'; // 3.10 + FilePicker
 import '../stories/GoogleAddressInput'; // 3.11 GoogleAddressInput
-import '../stories/AddItem/addItem.story.js'; // 3.12 AddItem
-import '../stories/Calendar/index.story'; // 3.13 Calendar
+import '../stories/AddItem/AddItem.story.js'; // 3.12 AddItem
 
 // 4. Selection
 import '../stories/Dropdown/Dropdown.story.js'; // 4.1 Dropdown
@@ -115,7 +113,6 @@ import '../stories/Highlighter.story.js'; // Highlighter
 
 // Components API
 import '../stories/FormField.story.js';
-import '../stories/AddNewItem/AddNewItem.story.js';
 import '../stories/Layout/index.story.js';
 import '../stories/Layout';
 

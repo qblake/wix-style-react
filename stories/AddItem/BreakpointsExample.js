@@ -2,7 +2,7 @@ import React from 'react';
 
 
 import {Container, Col, Row} from '../../src/Grid';
-import AddNewItem from '../../src/AddNewItem/AddNewItem';
+import AddItem from '../../src/AddItem/AddItem';
 
 
 const BreakpointsExample = () => (
@@ -11,30 +11,30 @@ const BreakpointsExample = () => (
       <Row stretchViewsVertically>
         <Col span={3}>
           <div style={{height: '240px'}}>
-            <AddNewItem dataHook="additem-large" size="large">
+            <AddItem dataHook="additem-large" size="large">
             Add New Item
-            </AddNewItem>
+            </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '200px'}}>
-            <AddNewItem dataHook="additem-medium" size="medium">
+            <AddItem dataHook="additem-medium" size="medium">
               Add New Item
-            </AddNewItem>
+            </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '130px'}}>
-            <AddNewItem dataHook="additem-small" size="small">
+            <AddItem dataHook="additem-small" size="small">
             Add New Item
-            </AddNewItem>
+            </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '55px'}}>
-            <AddNewItem dataHook="additem-tiny" size="tiny">
+            <AddItem dataHook="additem-tiny" size="tiny">
             Add New Item
-            </AddNewItem>
+            </AddItem>
           </div>
         </Col>
       </Row>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 import {Col, Row} from '../../src/Grid';
-import AddNewItem from '../../src/AddNewItem/AddNewItem';
+import AddItem from '../../src/AddItem/AddItem';
 import PlaceHolder from '../assets/ImagePlaceholder';
 import Card from 'wix-style-react/Card';
 
@@ -39,7 +39,7 @@ const VerticalExample = () => (
         <MockCard/>
       </Col>
       <Col span={6}>
-        <AddNewItem dataHook="add-as-card" size="medium">Add New Staff Member</AddNewItem>
+        <AddItem dataHook="add-as-card" size="medium">Add New Staff Member</AddItem>
       </Col>
     </Row>
   </div>

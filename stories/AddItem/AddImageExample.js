@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddNewItem from '../../src/AddNewItem/AddNewItem';
+import AddItem from '../../src/AddItem';
 import {Col, Row} from '../../src/Grid';
 import Card from '../../src/Card/Card';
 
@@ -11,7 +11,7 @@ const AddImageExample = () => (
       <Card.Content>
         <Row stretchViewsVertically>
           <Col stretchViewsVertically>
-            <AddNewItem size="small" theme="image"/>
+            <AddItem size="small" theme="image"/>
           </Col>
         </Row>
       </Card.Content>
