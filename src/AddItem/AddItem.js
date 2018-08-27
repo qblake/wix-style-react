@@ -12,7 +12,6 @@ import Tooltip from '../Tooltip';
 
 import styles from './AddItem.scss';
 
-
 const ICON_SIZES = {
   large: <AddItemLarge data-hook="additem-icon"/>,
   medium: <AddItemMedium data-hook="additem-icon"/>,
@@ -31,9 +30,8 @@ const DEFAULT_TOOLTIP_PROPS = {
 class AddItem extends Component {
   static displayName = 'AddItem';
   static propTypes = {
-
-     /** Any component or string */
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func, PropTypes.string]),
+    /** Any component or string */
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 
     /** Apply disabled styles */
     disabled: PropTypes.bool,
@@ -41,55 +39,59 @@ class AddItem extends Component {
     /** The theme of component */
     theme: PropTypes.oneOf(['dashes', 'plain', 'filled', 'image']),
 
-     /** Switching content alignment  */
+    /** Switching content alignment  */
     alignItems: PropTypes.oneOf(['center', 'right', 'left']),
 
     /** Size to control icon and spacing  */
     size: PropTypes.oneOf(['large', 'medium', 'small', 'tiny']),
 
-     /** Click event handler  */
+    /** Click event handler  */
     onClick: PropTypes.func,
 
     /** used for testing */
     dataHook: PropTypes.string,
 
-      /** Tooltip props, leave undefined for no tooltip */
+    /** Tooltip props, leave undefined for no tooltip */
     tooltipProps: PropTypes.shape(Tooltip.propTypes),
 
     /** Content of the tooltip, leave undefined for no tooltip */
-    tooltipContent: PropTypes.string
-  }
+    tooltipContent: PropTypes.string,
+
+    focusableOnFocus: PropTypes.func,
+
+    focusableOnBlur: PropTypes.func
+  };
 
   static defaultProps = {
     theme: 'dashes',
     size: 'tiny',
     alignItems: 'center'
-  }
+  };
 
   renderIcon = () => {
     const {size} = this.props;
     return ICON_SIZES[size];
-  }
+  };
 
   renderText = () => {
     const {children, disabled, theme, size} = this.props;
-    const image = theme === 'image';
-    switch (typeof children) {
-      case undefined:
-        return null;
-      case 'string':
-        return image ? null :
-        <ActionText disabled={disabled} size={size}>{children}</ActionText>;
-      default:
-        return image ? null : children;
+    if (!children || theme === 'image') {
+      return null;
     }
-  }
+    return typeof children === 'string' ? (
+      <ActionText disabled={disabled} size={size}>
+        {children}
+      </ActionText>
+    ) : (
+      children
+    );
+  };
 
   renderContent = () => {
     const {tooltipContent, theme, alignItems, size} = this.props;
     const tiny = size === 'tiny';
     const box = classnames(styles.box, styles[theme], styles[alignItems]);
-    const content = classnames({[styles.column]: !tiny}, {[styles.row]: tiny});
+    const content = classnames({[styles.row]: tiny});
     const container = (
       <div className={box}>
         <div className={content}>
@@ -105,17 +107,35 @@ class AddItem extends Component {
     };
     return tooltipProps.content ? (
       <Tooltip dataHook="additem-tooltip" {...tooltipProps}>
-        {container}</Tooltip>) : container;
-  }
+        {container}
+      </Tooltip>
+    ) : (
+      container
+    );
+  };
 
   render() {
-    const {dataHook, onClick, disabled, theme} = this.props;
-    const root = classnames(styles.root, {[styles.wrapped]: theme === 'image'}, {[styles.disabled]: disabled});
+    const {
+      dataHook,
+      onClick,
+      disabled,
+      theme,
+      focusableOnFocus,
+      focusableOnBlur
+    } = this.props;
+    const root = classnames(
+      styles.root,
+      {[styles.wrapped]: theme === 'image'},
+      {[styles.disabled]: disabled}
+    );
     return (
       <div
         className={root}
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
+        tabIndex="0"
+        onFocus={focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
+        onBlur={focusableOnBlur}
         {...focusableStates(this.props)}
         >
         {this.renderContent()}

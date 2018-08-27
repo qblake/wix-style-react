@@ -1,11 +1,9 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-
 //import {isTestkitExists, isEnzymeTestkitExists} from '../../test/utils/testkit-sanity';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import addItemDriverFactory from './AddItem.driver';
-
 
 // import {addItemTestkitFactory} from '../../testkit';
 // import {addItemTestkitFactory as enzymeAddItemTestkitFactory} from '../../testkit/enzyme';
@@ -40,9 +38,10 @@ describe('AddItem', () => {
       expect(driver.textExists()).toEqual(false);
     });
 
-
     it('should not render children as string when theme is `image`', () => {
-      const driver = createDriver(renderAddItem({children: text, theme: 'image'}));
+      const driver = createDriver(
+        renderAddItem({children: text, theme: 'image'})
+      );
       expect(driver.textExists()).toEqual(false);
     });
 
@@ -55,7 +54,9 @@ describe('AddItem', () => {
   describe('`onClick` prop', () => {
     it('should call onClick when clicked', () => {
       const onClick = jest.fn();
-      const driver = createDriver(renderAddItem({onClick, tooltipContent: 'll', theme: 'image'}));
+      const driver = createDriver(
+        renderAddItem({onClick, tooltipContent: 'll', theme: 'image'})
+      );
       driver.click();
       expect(onClick).toHaveBeenCalled();
     });
@@ -80,7 +81,9 @@ describe('AddItem', () => {
   describe('Icon svg', () => {
     it('should render', () => {
       const wrapper = mount(renderAddItem());
-      expect(wrapper.find(`[data-hook*="additem-icon"]`).exists()).toEqual(true);
+      expect(wrapper.find(`[data-hook*="additem-icon"]`).exists()).toEqual(
+        true
+      );
     });
   });
 
@@ -90,10 +93,9 @@ describe('AddItem', () => {
     });
 
     it('should exist for enzyme', () => {
-     //expect(isEnzymeTestkitExists(renderAddItem(), enzymeAddItemTestkitFactory, mount)).toBe(true);
+      //expect(isEnzymeTestkitExists(renderAddItem(), enzymeAddItemTestkitFactory, mount)).toBe(true);
     });
   });
-
 
   describe('Tooltip', () => {
     const tooltipContent = 'I am ToolTip';
