@@ -127,7 +127,7 @@ class AddItem extends Component {
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
         tabIndex={disabled ? null : 0}
-        onFocus={this.props.focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
+        onFocus={this.props.focusableOnFocus}
         onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}
         >
