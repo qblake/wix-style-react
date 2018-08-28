@@ -5,23 +5,24 @@ import AddItem from '../../src/AddItem/AddItem';
 import Text from '../../src/Text';
 import VerticalExample from './VerticalExample';
 import WithoutActionExample from './WithoutActionExample';
+
 import BreakpointsExample from './BreakpointsExample';
+import BreakpointsExampleRaw from '!raw-loader!./BreakpointsExample';
 import WithinExample from './WithinExample';
 import AddImageExample from './AddImageExample';
 import {Container, Col, Row} from '../../src/Grid';
 
 import {storySettings} from './storySettings';
 
-
 const Cards = (
   <Container>
-    <Row >
+    <Row>
       <Col span={5}>
         <CodeExample title="Add item as a vertical card" code="">
           <VerticalExample/>
         </CodeExample>
       </Col>
-      <Col span={7} >
+      <Col span={7}>
         <CodeExample title="Add item without action text" code="">
           <WithoutActionExample/>
         </CodeExample>
@@ -31,14 +32,14 @@ const Cards = (
 );
 
 const Breakpoints = (
-  <CodeExample title="Breakpoints" code="">
+  <CodeExample title="Breakpoints" code={BreakpointsExampleRaw}>
     <BreakpointsExample/>
   </CodeExample>
 );
 
 const Within = (
   <Container>
-    <Row >
+    <Row>
       <Col span={6}>
         <CodeExample title="Add item within a card" code="">
           <WithinExample theme="dashes" title="Sections in Menu"/>
@@ -54,10 +55,12 @@ const Within = (
 );
 
 const childrenExamples = [
-  {label: 'String',
+  {
+    label: 'String',
     value: 'Add New Item'
   },
-  {label: 'Text Component',
+  {
+    label: 'Text Component',
     value: <Text>Add New Item</Text>
   }
 ];
@@ -80,5 +83,4 @@ export default {
   },
 
   examples: [Cards, Within, Breakpoints]
-
 };

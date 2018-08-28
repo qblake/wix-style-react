@@ -97,8 +97,12 @@ class AddItem extends Component {
   renderContent = () => {
     const {tooltipContent, theme, alignItems, size} = this.props;
     const tiny = size === 'tiny';
-    const box = classnames(styles.box, styles[theme], styles[alignItems]);
-    const content = classnames(styles.column, {[styles.row]: tiny});
+    const box = classnames(styles.box, styles[theme]);
+    const content = classnames(
+      styles.column,
+      {[styles.row]: tiny},
+      styles[alignItems]
+    );
     const container = (
       <div className={box}>
         <div className={content}>
