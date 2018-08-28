@@ -115,14 +115,7 @@ class AddItem extends Component {
   };
 
   render() {
-    const {
-      dataHook,
-      onClick,
-      disabled,
-      theme,
-      focusableOnFocus,
-      focusableOnBlur
-    } = this.props;
+    const {dataHook, onClick, disabled, theme} = this.props;
     const root = classnames(
       styles.root,
       {[styles.wrapped]: theme === 'image'},
@@ -133,9 +126,9 @@ class AddItem extends Component {
         className={root}
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
-        tabIndex="0"
-        onFocus={focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
-        onBlur={focusableOnBlur}
+        tabIndex={disabled ? null : 0}
+        onFocus={this.props.focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
+        onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}
         >
         {this.renderContent()}

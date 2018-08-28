@@ -1,4 +1,4 @@
-@import '../common.scss';
+@import "../common.scss";
 
 .root {
   height: 100%;
@@ -10,6 +10,7 @@
   height: 100%;
   width: 100%;
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   padding: 12px 30px;
@@ -21,7 +22,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 .row {
@@ -29,20 +30,20 @@
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 .wrapped {
-    padding: 12px;
-    background-color: $B50;
-    transition: background .2s linear;
-    backface-visibility: hidden;
-    box-sizing: border-box;
-    transform: translate3d(0, 0, 0);
-    border-radius: 8px;
-    &:hover {
-      background-color: $B40;
-    }
+  padding: 12px;
+  background-color: $B50;
+  transition: background 0.2s linear;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  transform: translate3d(0, 0, 0);
+  border-radius: 8px;
+  &:hover {
+    background-color: $B40;
+  }
 }
 
 .plain {
@@ -51,7 +52,7 @@
   &:hover {
     background-color: $B40;
   }
-  
+
   &:active {
     background-color: $B30;
   }
@@ -66,7 +67,7 @@
   &:hover {
     background-color: $B40;
   }
-  
+
   &:active {
     background-color: $B30;
   }
@@ -79,7 +80,7 @@
   &:hover {
     background-color: $B40;
   }
-  
+
   &:active {
     background-color: $B30;
   }
@@ -90,23 +91,22 @@
   border-radius: 3px;
 }
 
-
 .disabled {
   .dashes {
     background-color: $S50;
-    color:$D55;
+    color: $D55;
     border: solid 1px $D55;
-    border-style:dashed;
+    border-style: dashed;
   }
 
   .plain {
     background-color: $S50;
-    color:$D55;
+    color: $D55;
   }
 
   .filled {
     background-color: $S50;
-    color:$D55;
+    color: $D55;
   }
 }
 
