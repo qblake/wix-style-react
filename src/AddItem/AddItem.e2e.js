@@ -1,16 +1,26 @@
 import eyes from 'eyes.it';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
-import {createStoryUrl, waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
+import {
+  createStoryUrl,
+  waitForVisibilityOf,
+  scrollToElement
+} from 'wix-ui-test-utils/protractor';
 
 import {addItemTestkitFactory} from '../../testkit/protractor';
 import {storySettings} from '../../stories/AddItem/storySettings';
+import {runFocusTests} from '../common/Focusable/FocusableTestsE2E';
 
 describe('AddItem', () => {
-
-  const storyUrl = createStoryUrl({kind: storySettings.kind, story: storySettings.storyName});
+  const storyUrl = createStoryUrl({
+    kind: storySettings.kind,
+    story: storySettings.storyName
+  });
 
   const createDriverFactory = async driver => {
-    await waitForVisibilityOf(driver.element(), 'Cannot find AddItem component');
+    await waitForVisibilityOf(
+      driver.element(),
+      'Cannot find AddItem component'
+    );
     await scrollToElement(driver.element());
     return driver;
   };
@@ -119,5 +129,10 @@ describe('AddItem', () => {
       const driver = addItemTestkitFactory({dataHook: storySettings.dataHook});
       await createDriverFactory(driver);
     });
+  });
+
+  describe('Generic', () => {
+    const driver = addItemTestkitFactory({dataHook: storySettings.dataHook});
+    runFocusTests(driver, storyUrl);
   });
 });

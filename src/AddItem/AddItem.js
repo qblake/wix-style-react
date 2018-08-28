@@ -9,6 +9,7 @@ import AddItemSmall from 'wix-ui-icons-common/system/AddItemSmall';
 import Add from '../new-icons/Add';
 import ActionText from './components/ActionText';
 import Tooltip from '../Tooltip';
+import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 
 import styles from './AddItem.scss';
 
@@ -23,7 +24,8 @@ const ICON_SIZES = {
       height="26"
       style={{flexShrink: '0'}}
       />
-  )
+  ),
+  image: <AddMedia data-hook="additem-icon" width="31" height="31"/>
 };
 
 const DEFAULT_TOOLTIP_PROPS = {
@@ -76,8 +78,9 @@ class AddItem extends Component {
   };
 
   renderIcon = () => {
-    const {size} = this.props;
-    return ICON_SIZES[size];
+    const {size, theme} = this.props;
+    const image = theme === 'image';
+    return ICON_SIZES[image ? 'image' : size];
   };
 
   renderText = () => {
@@ -137,7 +140,7 @@ class AddItem extends Component {
         className={root}
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
-        tabIndex={disabled ? null : 0}
+        tabIndex={disabled ? null : -1}
         onFocus={this.props.focusableOnFocus}
         onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}
