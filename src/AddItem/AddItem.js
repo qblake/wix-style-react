@@ -16,7 +16,14 @@ const ICON_SIZES = {
   large: <AddItemLarge data-hook="additem-icon"/>,
   medium: <AddItemMedium data-hook="additem-icon"/>,
   small: <AddItemSmall data-hook="additem-icon"/>,
-  tiny: <Add data-hook="additem-icon" width="26" height="26"/>
+  tiny: (
+    <Add
+      data-hook="additem-icon"
+      width="26"
+      height="26"
+      style={{flexShrink: '0'}}
+      />
+  )
 };
 
 const DEFAULT_TOOLTIP_PROPS = {
@@ -91,7 +98,7 @@ class AddItem extends Component {
     const {tooltipContent, theme, alignItems, size} = this.props;
     const tiny = size === 'tiny';
     const box = classnames(styles.box, styles[theme], styles[alignItems]);
-    const content = classnames({[styles.row]: tiny});
+    const content = classnames(styles.column, {[styles.row]: tiny});
     const container = (
       <div className={box}>
         <div className={content}>
