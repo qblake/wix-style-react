@@ -28,9 +28,7 @@ export default () => (
       </Card>
     </Col>
     <Col span={6}>
-      <AddItem dataHook="add-as-card" size="medium">
-        Add New Staff Member
-      </AddItem>
+      <AddItem size="medium">Add New Staff Member</AddItem>
     </Col>
   </Row>
 );
