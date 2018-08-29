@@ -1,9 +1,9 @@
 import 'regenerator-runtime/runtime';
 /*eslint no-duplicate-imports: 0*/
-import {protractorTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
+import { protractorTestkitFactoryCreator } from 'wix-ui-test-utils/protractor';
 
 // here for historical reasons, should probably deprecate it
-export {waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
+export { waitForVisibilityOf, scrollToElement } from 'wix-ui-test-utils/protractor';
 
 import inputDriverFactory from '../src/Input/Input.protractor.driver';
 export const inputTestkitFactory = protractorTestkitFactoryCreator(inputDriverFactory);
@@ -49,6 +49,9 @@ export const dropdownTestkitFactory = protractorTestkitFactoryCreator(dropdownDr
 
 import buttonWithOptionsDriverFactory from '../src/ButtonWithOptions/ButtonWithOptions.protractor.driver';
 export const buttonWithOptionsTestkitFactory = protractorTestkitFactoryCreator(buttonWithOptionsDriverFactory);
+
+import languagePickerDriverFactory from '../src/LanguagePicker/LanguagePicker.protractor.driver';
+export const languagePickerTestkitFactory = protractorTestkitFactoryCreator(languagePickerDriverFactory);
 
 import filePickerDriverFactory from '../src/FilePicker/FilePicker.protractor.driver';
 export const filePickerTestkitFactory = protractorTestkitFactoryCreator(filePickerDriverFactory);
