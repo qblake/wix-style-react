@@ -66,8 +66,10 @@ class AddItem extends Component {
     /** Content of the tooltip, leave undefined for no tooltip */
     tooltipContent: PropTypes.string,
 
+    /** Focusable proptype */
     focusableOnFocus: PropTypes.func,
 
+    /** Focusable proptype */
     focusableOnBlur: PropTypes.func
   };
 
