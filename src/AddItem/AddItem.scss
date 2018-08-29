@@ -1,9 +1,24 @@
 @import "../common.scss";
+@import "../common/Focusable/Focusable";
 
 .root {
   height: 100%;
   width: 100%;
   cursor: pointer;
+  outline: none;
+
+  &#{$focusable-focus-visible} {
+    .box {
+      @include FocusBox;
+      border: none;
+    }
+
+    &.hasError {
+      .box {
+        @include FocusBoxError;
+      }
+    }
+  }
 }
 
 .box {

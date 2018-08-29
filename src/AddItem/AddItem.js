@@ -140,10 +140,10 @@ class AddItem extends Component {
         className={root}
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
-        tabIndex={disabled ? null : -1}
         onFocus={this.props.focusableOnFocus}
         onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}
+        tabIndex={disabled ? null : 0}
         >
         {this.renderContent()}
       </div>
