@@ -8,7 +8,7 @@ export default () => (
       <Row stretchViewsVertically>
         <Col span={3}>
           <div style={{height: '240px'}}>
-            <AddItem dataHook="additem-large" size="large">
+            <AddItem size="large">
               Add New Item with a ridicilous length of name that doens’t fit in
               one line
             </AddItem>
@@ -16,7 +16,7 @@ export default () => (
         </Col>
         <Col span={3}>
           <div style={{height: '200px'}}>
-            <AddItem dataHook="additem-medium" size="medium">
+            <AddItem size="medium">
               Add New Item with a ridicilous length of name that doens’t fit in
               one line
             </AddItem>
@@ -24,7 +24,7 @@ export default () => (
         </Col>
         <Col span={3}>
           <div style={{height: '130px'}}>
-            <AddItem dataHook="additem-small" size="small">
+            <AddItem size="small">
               Add New Item with a ridicilous length of name that doens’t fit in
               one line
             </AddItem>
@@ -32,7 +32,7 @@ export default () => (
         </Col>
         <Col span={3}>
           <div style={{height: '55px'}}>
-            <AddItem dataHook="additem-tiny" size="tiny">
+            <AddItem size="tiny">
               Add New Item with a ridicilous length of name that doens’t fit in
               one line
             </AddItem>
