@@ -30,7 +30,7 @@ const Cards = (
           title="Add item as a vertical card"
           code={VerticalExampleRaw}
           >
-          <div style={{width: '500px', padding: '30px', background: '#F0F4F7'}}>
+          <div style={{width: '400px', padding: '30px', background: '#F0F4F7'}}>
             <VerticalExample/>
           </div>
         </CodeExample>
