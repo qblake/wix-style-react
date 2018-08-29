@@ -1,9 +1,9 @@
 import 'regenerator-runtime/runtime';
 /*eslint no-duplicate-imports: 0*/
-import { protractorTestkitFactoryCreator } from 'wix-ui-test-utils/protractor';
+import {protractorTestkitFactoryCreator} from 'wix-ui-test-utils/protractor';
 
 // here for historical reasons, should probably deprecate it
-export { waitForVisibilityOf, scrollToElement } from 'wix-ui-test-utils/protractor';
+export {waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
 
 import inputDriverFactory from '../src/Input/Input.protractor.driver';
 export const inputTestkitFactory = protractorTestkitFactoryCreator(inputDriverFactory);
