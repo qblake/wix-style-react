@@ -30,7 +30,9 @@ const Cards = (
           title="Add item as a vertical card"
           code={VerticalExampleRaw}
           >
-          <VerticalExample/>
+          <div style={{width: '500px', padding: '30px', background: '#F0F4F7'}}>
+            <VerticalExample/>
+          </div>
         </CodeExample>
       </Col>
       <Col span={6}>
@@ -38,7 +40,9 @@ const Cards = (
           title="Add item without action text"
           code={WithoutActionExampleRaw}
           >
-          <WithoutActionExample/>
+          <div style={{padding: '30px', background: '#F0F4F7'}}>
+            <WithoutActionExample/>
+          </div>
         </CodeExample>
       </Col>
     </Row>
@@ -56,12 +60,16 @@ const Within = (
     <Row>
       <Col span={6}>
         <CodeExample title="Add item within a card" code={WithinExampleRaw}>
-          <WithinExample/>
+          <div style={{padding: '30px', background: '#F0F4F7'}}>
+            <WithinExample/>
+          </div>
         </CodeExample>
       </Col>
       <Col span={6}>
         <CodeExample title="Add image placeholder" code={AddImageExampleRaw}>
-          <AddImageExample/>
+          <div style={{padding: '30px', background: '#F0F4F7'}}>
+            <AddImageExample/>
+          </div>
         </CodeExample>
       </Col>
     </Row>
