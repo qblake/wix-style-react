@@ -125,6 +125,7 @@ class AddItem extends Component {
       <Tooltip
         dataHook="additem-tooltip"
         {...tooltipProps}
+        content={!tooltipProps.content ? 'disabled' : tooltipProps.content}
         disabled={!tooltipProps.content}
         >
         {container}

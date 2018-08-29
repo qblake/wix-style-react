@@ -24,10 +24,7 @@ class ActionText extends Component {
   render() {
     const {children, disabled, size} = this.props;
     return (
-      <div
-        data-hook="text-with-ellipses"
-        style={{...SPACING[size], ...ALIGN_TEXT}}
-        >
+      <div style={{...SPACING[size], ...ALIGN_TEXT}}>
         <Text
           weight="thin"
           size="small"
