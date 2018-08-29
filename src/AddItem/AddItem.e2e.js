@@ -1,10 +1,11 @@
 import eyes from 'eyes.it';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import {
-  createStoryUrl,
   waitForVisibilityOf,
   scrollToElement
 } from 'wix-ui-test-utils/protractor';
+
+import {createStoryUrl} from '../../test/utils/storybook-helpers';
 
 import {addItemTestkitFactory} from '../../testkit/protractor';
 import {storySettings} from '../../stories/AddItem/storySettings';

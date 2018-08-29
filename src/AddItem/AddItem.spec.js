@@ -1,12 +1,15 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-//import {isTestkitExists, isEnzymeTestkitExists} from '../../test/utils/testkit-sanity';
+import {
+  isTestkitExists,
+  isEnzymeTestkitExists
+} from '../../test/utils/testkit-sanity';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import addItemDriverFactory from './AddItem.driver';
 
-// import {addItemTestkitFactory} from '../../testkit';
-// import {addItemTestkitFactory as enzymeAddItemTestkitFactory} from '../../testkit/enzyme';
+import {addItemTestkitFactory} from '../../testkit';
+import {addItemTestkitFactory as enzymeAddItemTestkitFactory} from '../../testkit/enzyme';
 
 const createDriver = createDriverFactory(addItemDriverFactory);
 
@@ -87,21 +90,29 @@ describe('AddItem', () => {
     });
   });
 
-  describe.skip('testkits', () => {
-    it('should exist', () => {
-      //expect(isTestkitExists(renderAddItem(), addItemTestkitFactory)).toBe(true);
-    });
-
-    it('should exist for enzyme', () => {
-      //expect(isEnzymeTestkitExists(renderAddItem(), enzymeAddItemTestkitFactory, mount)).toBe(true);
-    });
-  });
-
   describe('Tooltip', () => {
     const tooltipContent = 'I am ToolTip';
     it('should render tooltip with given tooltip content', async () => {
       const driver = createDriver(renderAddItem({tooltipContent}));
       expect(await driver.getTooltipContent()).toEqual(tooltipContent);
+    });
+  });
+
+  describe('testkits', () => {
+    it('should exist', () => {
+      expect(isTestkitExists(renderAddItem(), addItemTestkitFactory)).toBe(
+        true
+      );
+    });
+
+    it('should exist for enzyme', () => {
+      expect(
+        isEnzymeTestkitExists(
+          renderAddItem(),
+          enzymeAddItemTestkitFactory,
+          mount
+        )
+      ).toBe(true);
     });
   });
 });

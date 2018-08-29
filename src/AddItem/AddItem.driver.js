@@ -1,15 +1,17 @@
 import textDriverFactory from '../Text/Text.driver';
 import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
 
-
 const addItemDriverFactory = ({element, eventTrigger}) => {
   const byHook = hook => element.querySelector(`[data-hook*="${hook}"]`);
-  const tooltipDriver = () => tooltipDriverFactory({element: byHook('additem-tooltip')});
+  const tooltipDriver = () =>
+    tooltipDriverFactory({element: byHook('additem-tooltip')});
+  const textDriver = () => textDriverFactory({element: byHook('additem-text')});
+
   return {
     exists: () => !!element,
     element: () => element,
-    getText: () => textDriverFactory({element: byHook('additem-text')}).getText(),
-    textExists: () => textDriverFactory({element: byHook('additem-text')}).exists(),
+    getText: () => textDriver().getText(),
+    textExists: () => textDriver().exists(),
     getTooltipDriver: () => tooltipDriver(),
     getTooltipContent: () => tooltipDriver().hoverAndGetContent(),
     click: () => eventTrigger.click(element)
@@ -17,5 +19,3 @@ const addItemDriverFactory = ({element, eventTrigger}) => {
 };
 
 export default addItemDriverFactory;
-
-
