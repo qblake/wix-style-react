@@ -121,12 +121,14 @@ class AddItem extends Component {
       content: tooltipContent,
       ...this.props.tooltipProps
     };
-    return tooltipProps.content ? (
-      <Tooltip dataHook="additem-tooltip" {...tooltipProps}>
+    return (
+      <Tooltip
+        dataHook="additem-tooltip"
+        {...tooltipProps}
+        disabled={!tooltipProps.content}
+        >
         {container}
       </Tooltip>
-    ) : (
-      container
     );
   };
 
