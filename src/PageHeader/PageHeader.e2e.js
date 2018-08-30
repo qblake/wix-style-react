@@ -1,39 +1,30 @@
 import eyes from 'eyes.it';
 
+import {waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {pageHeaderTestkitFactory} from '../../testkit/protractor';
-import {waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
-import {createStoryUrl} from '../../test/utils/storybook-helpers';
+import {createTestStoryUrl} from '../../test/utils/storybook-helpers';
 
-import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import {storySettings} from '../../stories/PageHeader/storySettings';
 
-
 describe('PageHeader', async () => {
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
-    withExamples: false
-  });
+  const testStoryUrl = testName => createTestStoryUrl({...storySettings, testName});
 
   const dataHook = 'story-page-header';
 
-  const initTest = async ({props}) => {
-    await browser.get(storyUrl);
+  const initTest = async testName => {
+    await browser.get(testStoryUrl(testName));
     const driver = pageHeaderTestkitFactory({dataHook});
     await waitForVisibilityOf(driver.element(), 'Cannot find PageHeader');
-    await scrollToElement(driver.element());
-    props && (await autoExampleDriver.setProps(props));
     return driver;
   };
 
 
   describe('Title only', async () => {
-    eyes.it('should display title without ellipsis', () => {
-      initTest({title: 'Page Title very very long that should be ellipsed'});
-    });
-
-    eyes.it('should disaply an aellipsed title', () => {
-      initTest({title: 'Page Title very very long that should be ellipsed'});
+    eyes.it('should disaply an ellipsed title and subtitle', async () => {
+      await initTest('1. Ellipsed Title and Subtitle', {
+        title: 'Page Title very very long that should be ellipsed. very veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery very',
+        subtitle: 'Page SubTitle very very long that should be ellipsed. very veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery veryvery very'
+      });
     });
 
   });
