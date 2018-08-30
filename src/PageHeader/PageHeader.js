@@ -111,7 +111,7 @@ export default class PageHeader extends WixComponent {
               {
                 subtitle && animateComponent(!minimized, !breadcrumbsExists,
                   <div className={classNames({[s.minimized]: minimized})} data-hook="page-header-subtitle">
-                    <Text light={isDarkTheme(hasBackgroundImage, minimized)} secondary={!isDarkTheme(hasBackgroundImage, minimized)}>{subtitle}</Text>
+                    <Text ellipsis light={isDarkTheme(hasBackgroundImage, minimized)} secondary={!isDarkTheme(hasBackgroundImage, minimized)}>{subtitle}</Text>
                   </div>)
               }
             </div>
