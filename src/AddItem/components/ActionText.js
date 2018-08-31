@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Text from 'wix-style-react/Text';
 import PropTypes from 'prop-types';
+import colors from '../AddItem.scss';
 
 const SPACING = {
   large: {paddingTop: '12px', width: '100%'},
@@ -29,7 +30,7 @@ class ActionText extends Component {
           weight="thin"
           size="small"
           style={{
-            color: disabled ? '#CBD3DC' : '#3899ec'
+            color: disabled ? colors.D55 : colors.B10
           }}
           dataHook="additem-text"
           ellipsis
