@@ -1,5 +1,5 @@
 export const storySettings = {
-  kind: '3. Inputs',
-  storyName: '3.12 AddItem',
+  kind: '2. Layout',
+  storyName: '2.8 AddItem',
   dataHook: 'storybook-addItem'
 };
