@@ -6,6 +6,16 @@
   width: 100%;
   cursor: pointer;
   outline: none;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  color: $B10;
+
+  &:hover {
+    background-color: $B40;
+  }
 
   &#{$focusable-focus-visible} {
     .box {
@@ -22,17 +32,6 @@
 }
 
 .box {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 30px;
-  color: $B10;
-}
-
-.column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,11 +43,6 @@
 
 .row {
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  height: 100%;
-  width: 100%;
 }
 
 .wrapped {
@@ -59,87 +53,55 @@
   box-sizing: border-box;
   transform: translate3d(0, 0, 0);
   border-radius: 8px;
-  &:hover {
-    background-color: $B40;
-  }
 }
 
 .plain {
   background-color: $paletteD6;
-
-  &:hover {
-    background-color: $B40;
-  }
-
-  &:active {
-    background-color: $B30;
-  }
 }
 
 .dashes {
   box-sizing: border-box;
-  border: solid 1px $B20;
-  border-style: dashed;
+  border: dashed 1px $B20;
   border-radius: 8px;
   background-color: $S50;
-  &:hover {
-    background-color: $B40;
-  }
-
-  &:active {
-    background-color: $B30;
-  }
 }
 
 .filled {
   background-color: $B50;
   border-radius: 8px;
+}
 
-  &:hover {
-    background-color: $B40;
-  }
-
-  &:active {
-    background-color: $B30;
-  }
+.dashes:active,
+.plain:active,
+.filled:active {
+  background-color: $B30;
 }
 
 .image {
   border: dashed 1px $B20;
   border-radius: 3px;
+  padding: 12px 30px;
 }
 
 .disabled {
-  .dashes {
-    background-color: $S50;
-    color: $D55;
-    border: solid 1px $D55;
-    border-style: dashed;
+  background-color: $S50;
+  color: $D55;
+  &.dashes {
+    border: dashed 1px $D55;
   }
-
-  .plain {
+  &:hover {
     background-color: $S50;
-    color: $D55;
-  }
-
-  .filled {
-    background-color: $S50;
-    color: $D55;
   }
 }
 
 .left {
-  align-items: center;
   justify-content: flex-start;
 }
 
 .right {
-  align-items: center;
   justify-content: flex-end;
 }
 
 .center {
-  align-items: center;
   justify-content: center;
-  text-align: center;
 }

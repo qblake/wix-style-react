@@ -101,19 +101,16 @@ class AddItem extends Component {
 
   renderContent = () => {
     const {tooltipContent, theme, alignItems, size} = this.props;
-    const tiny = size === 'tiny';
-    const box = classnames(styles.box, styles[theme]);
-    const content = classnames(
-      styles.column,
-      {[styles.row]: tiny},
-      styles[alignItems]
+    const box = classnames(
+      styles.box,
+      styles[alignItems],
+      {[styles.row]: size === 'tiny'},
+      {[styles[theme]]: theme === 'image'}
     );
     const container = (
       <div className={box}>
-        <div className={content}>
-          {this.renderIcon()}
-          {this.renderText()}
-        </div>
+        {this.renderIcon()}
+        {this.renderText()}
       </div>
     );
     const tooltipProps = {
@@ -133,10 +130,13 @@ class AddItem extends Component {
 
   render() {
     const {dataHook, onClick, disabled, theme} = this.props;
+    const disable = disabled && theme !== 'image';
+    const image = theme === 'image';
     const root = classnames(
       styles.root,
-      {[styles.wrapped]: theme === 'image'},
-      {[styles.disabled]: disabled}
+      {[styles[theme]]: !image},
+      {[styles.wrapped]: image},
+      {[styles.disabled]: disable}
     );
     return (
       <div
