@@ -129,7 +129,14 @@ class AddItem extends Component {
   };
 
   render() {
-    const {dataHook, onClick, disabled, theme} = this.props;
+    const {
+      dataHook,
+      onClick,
+      disabled,
+      theme,
+      focusableOnFocus,
+      focusableOnBlur
+    } = this.props;
     const disable = disabled && theme !== 'image';
     const image = theme === 'image';
     const root = classnames(
@@ -143,8 +150,8 @@ class AddItem extends Component {
         className={root}
         data-hook={dataHook}
         onClick={disabled ? null : onClick}
-        onFocus={this.props.focusableOnFocus}
-        onBlur={this.props.focusableOnBlur}
+        onFocus={focusableOnFocus}
+        onBlur={focusableOnBlur}
         {...focusableStates(this.props)}
         tabIndex={disabled ? null : 0}
         >
