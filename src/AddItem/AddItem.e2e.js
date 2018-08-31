@@ -31,7 +31,7 @@ describe('AddItem', () => {
   });
 
   beforeEach(() => {
-    autoExampleDriver.reset();
+    autoExampleDriver.remount();
   });
 
   describe(`'alignItems' prop`, () => {
