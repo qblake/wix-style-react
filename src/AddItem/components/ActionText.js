@@ -28,7 +28,7 @@ class ActionText extends Component {
       <div style={{...SPACING[size], ...ALIGN_TEXT}}>
         <Text
           weight="thin"
-          size="small"
+          size="medium"
           style={{
             color: disabled ? colors.D55 : colors.B10
           }}
