@@ -25,7 +25,7 @@ const ICON_SIZES = {
       style={{flexShrink: '0'}}
       />
   ),
-  image: <AddMedia data-hook="additem-icon" width="31" height="31"/>
+  custom: <AddMedia data-hook="additem-icon" width="31" height="31"/>
 };
 
 const DEFAULT_TOOLTIP_PROPS = {
@@ -40,7 +40,7 @@ class AddItem extends Component {
   static displayName = 'AddItem';
   static propTypes = {
     /** Any component or string */
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    children: PropTypes.node,
 
     /** Apply disabled styles */
     disabled: PropTypes.bool,
@@ -82,7 +82,7 @@ class AddItem extends Component {
   renderIcon = () => {
     const {size, theme} = this.props;
     const image = theme === 'image';
-    return ICON_SIZES[image ? 'image' : size];
+    return ICON_SIZES[image ? 'custom' : size];
   };
 
   renderText = () => {
@@ -121,15 +121,13 @@ class AddItem extends Component {
       content: tooltipContent,
       ...this.props.tooltipProps
     };
-    return (
-      <Tooltip
-        dataHook="additem-tooltip"
-        {...tooltipProps}
-        content={!tooltipProps.content ? 'disabled' : tooltipProps.content}
-        disabled={!tooltipProps.content}
-        >
+
+    return tooltipProps.content ? (
+      <Tooltip dataHook="additem-tooltip" {...tooltipProps}>
         {container}
       </Tooltip>
+    ) : (
+      container
     );
   };
 

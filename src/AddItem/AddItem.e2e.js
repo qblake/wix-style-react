@@ -66,7 +66,9 @@ describe('AddItem', () => {
   describe(`'size' prop`, () => {
     ['large', 'medium', 'small', 'tiny'].map(size =>
       eyes.it(`should render with ${size} icon`, async () => {
-        await autoExampleDriver.setProps({size: size === 'tiny' ? '' : size});
+        await autoExampleDriver.setProps({
+          size: size === 'tiny' ? undefined : size
+        });
         const driver = addItemTestkitFactory({
           dataHook: storySettings.dataHook
         });
