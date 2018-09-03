@@ -1,19 +1,19 @@
 import React from 'react';
 import TableActionCell from 'wix-style-react/TableActionCell';
 
-import styles from '../TableActionCell.story.scss';
+import style from '../TableActionCell.story.st.css';
 
 const Example = () => (
-  <tr className={styles.previewWrapper}>
+  <div className={style.exampleRow}>
     <TableActionCell
       dataHook="story-primary-white"
       primaryAction={{
         text: 'Edit',
         theme: 'whiteblue',
-        onClick: () => window.alert('Primary action was triggered!')
+        onClick: () => window.alert('Primary action was diviggered!')
       }}
       />
-  </tr>
+  </div>
 );
 
 export default Example;

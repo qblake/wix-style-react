@@ -1,10 +1,10 @@
 import React from 'react';
 import TableActionCell from 'wix-style-react/TableActionCell';
 
-import styles from '../TableActionCell.story.scss';
+import style from '../TableActionCell.story.st.css';
 
 const Example = () => (
-  <tr className={styles.previewWrapper}>
+  <div className={style.exampleRow}>
     <TableActionCell
       dataHook="story-primary-blue"
       primaryAction={{
@@ -13,7 +13,7 @@ const Example = () => (
         onClick: () => window.alert('Primary action was triggered!')
       }}
       />
-  </tr>
+  </div>
 );
 
 export default Example;
