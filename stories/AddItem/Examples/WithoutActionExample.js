@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import {Col, Row} from 'wix-style-react/Grid';
 import AddItem from 'wix-style-react/AddItem';
 import Card from 'wix-style-react/Card';
+import Heading from 'wix-style-react/Heading';
+import Text from 'wix-style-react/Text';
 
 export default () => (
   <Row stretchViewsVertically>
@@ -19,8 +21,10 @@ export default () => (
                 borderRadius: '50%'
               }}
               />
-            <h4>Clark Broke</h4>
-            <p>jen@yoga.train</p>
+          </CenterElements>
+          <CenterElements>
+            <Heading appearance="H4">Clark Broke</Heading>
+            <Text>jen@yoga.train</Text>
           </CenterElements>
         </Card.Content>
       </Card>
@@ -32,7 +36,14 @@ export default () => (
 );
 
 const CenterElements = ({children}) => (
-  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '15px'
+    }}
+    >
     {children}
   </div>
 );

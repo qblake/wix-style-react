@@ -1,4 +1,4 @@
-@import "../colors.scss";
+@import "../common.scss";
 @import "../common/Focusable/Focusable";
 
 .root {
@@ -46,7 +46,6 @@
   background-color: $B50;
   transition: background 0.2s linear;
   backface-visibility: hidden;
-  box-sizing: border-box;
   transform: translate3d(0, 0, 0);
   border-radius: 8px;
 }
@@ -56,7 +55,6 @@
 }
 
 .dashes {
-  box-sizing: border-box;
   border: dashed 1px $B20;
   border-radius: 8px;
   background-color: $S50;

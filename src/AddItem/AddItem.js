@@ -13,7 +13,7 @@ import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 
 import styles from './AddItem.scss';
 
-const ICON_SIZES = {
+const ICONS = {
   large: <AddItemLarge data-hook="additem-icon"/>,
   medium: <AddItemMedium data-hook="additem-icon"/>,
   small: <AddItemSmall data-hook="additem-icon"/>,
@@ -22,7 +22,7 @@ const ICON_SIZES = {
       data-hook="additem-icon"
       width="26"
       height="26"
-      style={{flexShrink: '0'}}
+      style={{flexShrink: 0}}
       />
   ),
   custom: <AddMedia data-hook="additem-icon" width="31" height="31"/>
@@ -82,7 +82,7 @@ class AddItem extends Component {
   renderIcon = () => {
     const {size, theme} = this.props;
     const image = theme === 'image';
-    return ICON_SIZES[image ? 'custom' : size];
+    return ICONS[image ? 'custom' : size];
   };
 
   renderText = () => {
@@ -101,12 +101,10 @@ class AddItem extends Component {
 
   renderContent = () => {
     const {tooltipContent, theme, alignItems, size, disabled} = this.props;
-    const box = classnames(
-      styles.box,
-      styles[alignItems],
-      {[styles.row]: size === 'tiny'},
-      {[styles[theme]]: theme === 'image'}
-    );
+    const box = classnames(styles.box, styles[alignItems], {
+      [styles.row]: size === 'tiny',
+      [styles[theme]]: theme === 'image'
+    });
     const container = (
       <div className={box}>
         {this.renderIcon()}
@@ -139,12 +137,11 @@ class AddItem extends Component {
     } = this.props;
     const disable = disabled && theme !== 'image';
     const image = theme === 'image';
-    const root = classnames(
-      styles.root,
-      {[styles[theme]]: !image},
-      {[styles.wrapped]: image},
-      {[styles.disabled]: disable}
-    );
+    const root = classnames(styles.root, {
+      [styles[theme]]: !image,
+      [styles.wrapped]: image,
+      [styles.disabled]: disable
+    });
     return (
       <div
         className={root}

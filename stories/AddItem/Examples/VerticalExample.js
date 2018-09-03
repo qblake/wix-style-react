@@ -36,7 +36,14 @@ export default () => (
 );
 
 const CenterElements = ({children}) => (
-  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '15px'
+    }}
+    >
     {children}
   </div>
 );

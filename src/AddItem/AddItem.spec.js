@@ -15,7 +15,7 @@ const createDriver = createDriverFactory(addItemDriverFactory);
 
 import AddItem from './AddItem';
 
-describe('AddItem', () => {
+describe.only('AddItem', () => {
   const renderAddItem = (props = {}) => <AddItem {...props}/>;
 
   it('should have correct displayName', () => {
