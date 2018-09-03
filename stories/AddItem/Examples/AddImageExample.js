@@ -5,7 +5,7 @@ import AddItem from 'wix-style-react/AddItem';
 export default () => (
   <Card>
     <Card.Content>
-      <AddItem size="small" theme="image"/>
+      <AddItem theme="image"/>
     </Card.Content>
   </Card>
 );

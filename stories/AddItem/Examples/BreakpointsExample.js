@@ -9,32 +9,28 @@ export default () => (
         <Col span={3}>
           <div style={{height: '240px'}}>
             <AddItem size="large">
-              Add New Item with a ridicilous length of name that doens’t fit in
-              one line
+              Add New Item with a ridiculous length that doens’t fit in one line
             </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '200px'}}>
             <AddItem size="medium">
-              Add New Item with a ridicilous length of name that doens’t fit in
-              one line
+              Add New Item with a ridiculous length that doens’t fit in one line
             </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '130px'}}>
             <AddItem size="small">
-              Add New Item with a ridicilous length of name that doens’t fit in
-              one line
+              Add New Item with a ridiculous length that doens’t fit in one line
             </AddItem>
           </div>
         </Col>
         <Col span={3}>
           <div style={{height: '55px'}}>
             <AddItem size="tiny">
-              Add New Item with a ridicilous length of name that doens’t fit in
-              one line
+              Add New Item with a ridiculous length that doens’t fit in one line
             </AddItem>
           </div>
         </Col>
