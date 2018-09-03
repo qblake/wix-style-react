@@ -137,12 +137,12 @@ PageHeader.propTypes = {
   hasBackgroundImage: PropTypes.bool,
   /** Wix-Style-React Breadcrumbs component */
   breadcrumbs: PropTypes.node,
-  /** The main title text */
+  /** The main title text. This text is wrapped with `<Heading ellipsis/>` so the passed node (or result of function) should be a valid node that `text-overflow: ellipsis` can be applied to. */
   title: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func
   ]),
-  /** The subtitle text */
+  /** The subtitle text. This text is wrapped with `<Text ellipsis/>` so the passed node should be a valid node that `text-overflow: ellipsis` can be applied to.  */
   subtitle: PropTypes.node,
   /** Should show a back button */
   showBackButton: PropTypes.bool,
