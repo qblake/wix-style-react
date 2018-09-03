@@ -1,9 +1,5 @@
 import eyes from 'eyes.it';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
-import {
-  waitForVisibilityOf,
-  scrollToElement
-} from 'wix-ui-test-utils/protractor';
 
 import {createStoryUrl} from '../../test/utils/storybook-helpers';
 
@@ -16,15 +12,6 @@ describe('AddItem', () => {
     kind: storySettings.kind,
     story: storySettings.storyName
   });
-
-  const createDriverFactory = async driver => {
-    await waitForVisibilityOf(
-      driver.element(),
-      'Cannot find AddItem component'
-    );
-    await scrollToElement(driver.element());
-    return driver;
-  };
 
   beforeAll(async () => {
     await browser.get(storyUrl);
@@ -40,10 +27,6 @@ describe('AddItem', () => {
         await autoExampleDriver.setProps({
           alignItems
         });
-        const driver = addItemTestkitFactory({
-          dataHook: storySettings.dataHook
-        });
-        await createDriverFactory(driver);
       })
     );
   });
@@ -54,10 +37,6 @@ describe('AddItem', () => {
         await autoExampleDriver.setProps({
           theme
         });
-        const driver = addItemTestkitFactory({
-          dataHook: storySettings.dataHook
-        });
-        await createDriverFactory(driver);
       })
     );
   });
@@ -68,10 +47,6 @@ describe('AddItem', () => {
         await autoExampleDriver.setProps({
           size
         });
-        const driver = addItemTestkitFactory({
-          dataHook: storySettings.dataHook
-        });
-        await createDriverFactory(driver);
       })
     );
   });
@@ -80,10 +55,6 @@ describe('AddItem', () => {
     ['dashes', 'filled', 'plain', 'image'].map(theme =>
       eyes.it(`should render with theme ${theme}`, async () => {
         await autoExampleDriver.setProps({disabled: true, theme});
-        const driver = addItemTestkitFactory({
-          dataHook: storySettings.dataHook
-        });
-        await createDriverFactory(driver);
       })
     );
   });
