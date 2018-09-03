@@ -96,6 +96,13 @@ describe('AddItem', () => {
       const driver = createDriver(renderAddItem({tooltipContent}));
       expect(await driver.getTooltipContent()).toEqual(tooltipContent);
     });
+
+    it(`should not render when disabled`, () => {
+      const wrapper = mount(renderAddItem({tooltipContent, disabled: true}));
+      expect(wrapper.find(`[data-hook*="additem-tooltip"]`).exists()).toEqual(
+        false
+      );
+    });
   });
 
   describe('testkits', () => {
