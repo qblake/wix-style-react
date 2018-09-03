@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
 import {mount} from 'enzyme';
+import eventually from 'wix-eventually';
 
 import TableActionCell from './TableActionCell';
 import tableActionCellDriverFactory from './TableActionCell.driver';
@@ -97,13 +98,11 @@ describe('Table Action Cell', () => {
     const tooltipDriver2 = driver.getVisibleActionTooltipDriver(1);
 
     tooltipDriver1.mouseEnter();
-    await resolveIn(300);
-    expect(tooltipDriver1.getContent()).toEqual('Action 0');
+    await eventually(() => expect(tooltipDriver1.getContent()).toEqual('Action 0'));
     tooltipDriver1.mouseLeave();
 
     tooltipDriver2.mouseEnter();
-    await resolveIn(300);
-    expect(tooltipDriver2.getContent()).toEqual('Action 1');
+    await eventually(() => expect(tooltipDriver2.getContent()).toEqual('Action 1'));
     tooltipDriver2.mouseLeave();
   });
 
@@ -120,11 +119,12 @@ describe('Table Action Cell', () => {
     expect(popoverMenuDriver.exists()).toEqual(true);
 
     popoverMenuDriver.click();
-    await resolveIn(30);
 
-    expect(popoverMenuDriver.menu.itemsLength()).toEqual(2);
-    expect(popoverMenuDriver.menu.itemContentAt(0)).toEqual('Action 2');
-    expect(popoverMenuDriver.menu.itemContentAt(1)).toEqual('Action 3');
+    await eventually(() => {
+      expect(popoverMenuDriver.menu.itemsLength()).toEqual(2);
+      expect(popoverMenuDriver.menu.itemContentAt(0)).toEqual('Action 2');
+      expect(popoverMenuDriver.menu.itemContentAt(1)).toEqual('Action 3');
+    });
   });
 
   it('should trigger secondary action on click', async () => {
@@ -141,12 +141,10 @@ describe('Table Action Cell', () => {
     driver.clickVisibleAction(1);
 
     driver.clickPopoverMenu();
-    await resolveIn(30);
-    driver.clickHiddenAction(0);
+    await eventually(() => driver.clickHiddenAction(0));
 
     driver.clickPopoverMenu();
-    await resolveIn(30);
-    driver.clickHiddenAction(1);
+    await eventually(() => driver.clickHiddenAction(1));
 
     actionTriggers.forEach(actionTrigger => {
       expect(actionTrigger).toHaveBeenCalledTimes(1);
@@ -162,11 +160,10 @@ describe('Table Action Cell', () => {
         />
     );
 
-    expect(driver.getVisibleActionsCount(0)).toEqual(3);
+    expect(driver.getVisibleActionsCount()).toEqual(3);
 
     driver.clickPopoverMenu();
-    await resolveIn(30);
-    expect(driver.getHiddenActionsCount(0)).toEqual(1);
+    await eventually(() => expect(driver.getHiddenActionsCount()).toEqual(1));
   });
 });
 
@@ -195,11 +192,3 @@ describe('enzyme testkit', () => {
     expect(actionCellTextkit.primaryActionPlaceholderExists()).toBeTruthy();
   });
 });
-
-function resolveIn(timeout) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve({});
-    }, timeout);
-  });
-}
