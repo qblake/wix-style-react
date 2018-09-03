@@ -19,3 +19,5 @@ With tooltip:
   Add New Item
 </AddItem>
 ```
+
+Theme `image` have fixed icon size and does not allow any action text.
