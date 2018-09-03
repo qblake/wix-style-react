@@ -18,15 +18,11 @@
   }
 
   &#{$focusable-focus-visible} {
-    .box {
-      @include FocusBox;
-      border: none;
-    }
+    @include FocusBox;
+    border: none;
 
     &.hasError {
-      .box {
-        @include FocusBoxError;
-      }
+      @include FocusBoxError;
     }
   }
 }
