@@ -20,8 +20,7 @@ class ActionText extends Component {
   static propTypes = {
     children: PropTypes.string,
     disabled: PropTypes.bool,
-    size: PropTypes.string,
-    theme: PropTypes.string
+    size: PropTypes.string
   };
   render() {
     const {children, disabled, size} = this.props;
