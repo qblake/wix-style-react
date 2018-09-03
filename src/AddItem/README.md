@@ -2,19 +2,19 @@
 
 Component for adding new items.
 
-```js
+```xml
 <AddItem size="small">Add New Item</AddItem>
 ```
 
 Without action text:
 
-```js
+```xml
 <AddItem />
 ```
 
 With tooltip:
 
-```js
+```xml
 <AddItem size="small" tooltipContent="I am tooltip">
   Add New Item
 </AddItem>
