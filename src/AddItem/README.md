@@ -6,18 +6,4 @@ Component for adding new items.
 <AddItem size="small">Add New Item</AddItem>
 ```
 
-Without action text:
-
-```xml
-<AddItem />
-```
-
-With tooltip:
-
-```xml
-<AddItem size="small" tooltipContent="I am tooltip">
-  Add New Item
-</AddItem>
-```
-
-Theme `image` have fixed icon size and does not allow any action text.
+> Theme `image` has fixed icon size and does not allow any action text.

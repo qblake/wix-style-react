@@ -20,15 +20,17 @@ class ActionText extends Component {
   static propTypes = {
     children: PropTypes.string,
     disabled: PropTypes.bool,
-    size: PropTypes.string
+    size: PropTypes.string,
+    theme: PropTypes.string
   };
   render() {
     const {children, disabled, size} = this.props;
+    const textSize = size === 'tiny' ? 'small' : 'medium';
     return (
       <div style={{...SPACING[size], ...ALIGN_TEXT}}>
         <Text
           weight="thin"
-          size="medium"
+          size={textSize}
           style={{
             color: disabled ? colors.D55 : colors.B10
           }}
