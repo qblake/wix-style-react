@@ -24,9 +24,7 @@ describe('AddItem', () => {
   describe(`'alignItems' prop`, () => {
     ['', 'left', 'right'].map(alignItems =>
       eyes.it(`should render with value ${alignItems}`, async () => {
-        await autoExampleDriver.setProps({
-          alignItems
-        });
+        await autoExampleDriver.setProps({alignItems});
       })
     );
   });
@@ -34,9 +32,7 @@ describe('AddItem', () => {
   describe(`'theme' prop`, () => {
     ['', 'filled', 'plain', 'image'].map(theme =>
       eyes.it(`should render with theme ${theme}`, async () => {
-        await autoExampleDriver.setProps({
-          theme
-        });
+        await autoExampleDriver.setProps({theme});
       })
     );
   });
@@ -44,9 +40,7 @@ describe('AddItem', () => {
   describe(`'size' prop`, () => {
     ['large', 'medium', 'small', ''].map(size =>
       eyes.it(`should render with ${size} icon`, async () => {
-        await autoExampleDriver.setProps({
-          size
-        });
+        await autoExampleDriver.setProps({size});
       })
     );
   });
