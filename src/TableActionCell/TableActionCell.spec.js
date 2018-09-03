@@ -33,20 +33,9 @@ const secondaryActionsProps = (actionTriggers = []) => {
 describe('Table Action Cell', () => {
   const createDriver = createDriverFactory(tableActionCellDriverFactory);
 
-  beforeEach(() => {
-    // The action column uses <Tooltip/> and <PopoverMenu/> under the hood,
-    // which renders straight into document.body, this we need to clear it.
-    document.body.innerHTML = '';
-  });
-
-  it('should display the action column for primary action', () => {
-    const driver = createDriver(<TableActionCell {...primaryActionProps()}/>);
-    expect(driver.exists()).toBeTruthy();
-  });
-
   it('should have a placeholder when there\'s only a primary action', () => {
     const driver = createDriver(<TableActionCell {...primaryActionProps()}/>);
-    expect(driver.getPrimaryActionPlaceholder(1)).toBeTruthy();
+    expect(driver.primaryActionPlaceholderExists()).toBeTruthy();
   });
 
   it('should display the primary action button', () => {
@@ -58,8 +47,8 @@ describe('Table Action Cell', () => {
         />
     );
 
-    expect(driver.getPrimaryActionButtonDriver(0).exists()).toBeTruthy();
-    expect(driver.getPrimaryActionButtonDriver(0).getButtonTextContent()).toEqual('primary action');
+    expect(driver.getPrimaryActionButtonDriver().exists()).toBeTruthy();
+    expect(driver.getPrimaryActionButtonDriver().getButtonTextContent()).toEqual('primary action');
   });
 
   it('should trigger the primary action on primary button click', () => {
@@ -71,7 +60,7 @@ describe('Table Action Cell', () => {
         />
     );
 
-    driver.clickPrimaryActionButton(0);
+    driver.clickPrimaryActionButton();
     expect(onPrimaryActionTrigger).toHaveBeenCalledTimes(1);
   });
 
@@ -88,7 +77,7 @@ describe('Table Action Cell', () => {
         />
     );
 
-    expect(driver.getPrimaryActionPlaceholder(1)).toBeFalsy();
+    expect(driver.primaryActionPlaceholderExists()).toBeFalsy();
   });
 
   it('should put visible secondary actions in the cell', async () => {
@@ -99,7 +88,7 @@ describe('Table Action Cell', () => {
         />
     );
 
-    expect(driver.getVisibleActionsCount(0)).toEqual(2);
+    expect(driver.getVisibleActionsCount()).toEqual(2);
 
     expect(driver.getVisibleActionButtonDriver(0).getButtonTextContent()).toEqual('Icon 0');
     expect(driver.getVisibleActionButtonDriver(1).getButtonTextContent()).toEqual('Icon 1');
@@ -151,11 +140,11 @@ describe('Table Action Cell', () => {
     driver.clickVisibleAction(0);
     driver.clickVisibleAction(1);
 
-    driver.clickPopoverMenu(0);
+    driver.clickPopoverMenu();
     await resolveIn(30);
     driver.clickHiddenAction(0);
 
-    driver.clickPopoverMenu(0);
+    driver.clickPopoverMenu();
     await resolveIn(30);
     driver.clickHiddenAction(1);
 
@@ -175,7 +164,7 @@ describe('Table Action Cell', () => {
 
     expect(driver.getVisibleActionsCount(0)).toEqual(3);
 
-    driver.clickPopoverMenu(0);
+    driver.clickPopoverMenu();
     await resolveIn(30);
     expect(driver.getHiddenActionsCount(0)).toEqual(1);
   });
@@ -194,7 +183,7 @@ describe('testkit', () => {
     </div>));
 
     const actionCellTextkit = tableActionCellTestkitFactory({wrapper, dataHook});
-    expect(actionCellTextkit.getPrimaryActionPlaceholder()).toBeTruthy();
+    expect(actionCellTextkit.primaryActionPlaceholderExists()).toBeTruthy();
   });
 });
 
@@ -203,7 +192,7 @@ describe('enzyme testkit', () => {
     const dataHook = 'table-action-cell';
     const wrapper = mount(<TableActionCell dataHook={dataHook} {...primaryActionProps()}/>);
     const actionCellTextkit = enzymeTableActionCellTestkitFactory({wrapper, dataHook});
-    expect(actionCellTextkit.getPrimaryActionPlaceholder()).toBeTruthy();
+    expect(actionCellTextkit.primaryActionPlaceholderExists()).toBeTruthy();
   });
 });
 

@@ -6,11 +6,11 @@
 |--------|-----------|----------------|-------------|
 | `element` | - | `element` | Get the element |
 | `exists` | - | `bool` | Whether the element exists |
-| `getPrimaryActionPlaceholder` | - | `element` | Get the primary action placeholder element |
+| `primaryActionPlaceholderExists` | - | `element` | Whether the primary action placeholder exists |
 | `getPrimaryActionButtonDriver` | - | ButtonDriver | Get the driver of the primary action `<Button/>` from the action column |
 | `clickPrimaryActionButton` | - | - | Click the primary action button from the action column |
 | `getVisibleActionsCount` | - | `number` | Get the number of the visible secondary actions |
-| `getHiddenActionsCount` | - | `number` | Get the number of the hidden secondary actions (in the `<PopoverMenu/>`) |
+| `getHiddenActionsCount` | - | `number` | Get the number of the hidden secondary actions (in the `<PopoverMenu/>`, requires it to be open) |
 | `getVisibleActionTooltipDriver` | `(actionIndex)` | TooltipDriver | Get the driver of a specific visible secondary action `<Tooltip/>` |
 | `getVisibleActionButtonDriver` | (`actionIndex`) | ButtonDriver | Get the driver of a specific visible secondary action `<Button/>` |
 | `getHiddenActionsPopoverMenuDriver` | - | PopoverMenuDriver | Get the driver of the hidden secondary action `<PopoverMenu/>` |

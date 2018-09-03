@@ -34,15 +34,15 @@ const tableActionCellDriverFactory = ({element}) => {
     element: () => element,
     /** Whether the element exists */
     exists: () => !!element,
-    /** Get the primary action placeholder element */
-    getPrimaryActionPlaceholder,
+    /** Whether the primary action placeholder exists */
+    primaryActionPlaceholderExists: () => !!getPrimaryActionPlaceholder(),
     /** Get the driver of the primary action <Button/> from the action column */
     getPrimaryActionButtonDriver,
     /** Click the primary action button from the action column */
     clickPrimaryActionButton: () => getPrimaryActionButtonDriver().click(),
     /** Get the number of the visible secondary actions */
     getVisibleActionsCount: () => getVisibleActionsWrapper().childElementCount,
-    /** Get the number of hidden secondary actions (in the <PopoverMenu/>) */
+    /** Get the number of hidden secondary actions (in the <PopoverMenu/>, requires it to be open) */
     getHiddenActionsCount: () => getHiddenActionsPopoverMenuDriver().menu.itemsLength(),
     /** Get the driver of a specific visible secondary action <Tooltip/> */
     getVisibleActionTooltipDriver,

@@ -108,7 +108,7 @@ export class Table extends WixComponent {
   renderChildren() {
     const children = this.props.children;
     return this.props.withWrapper ? (
-      <div {...style('root', {clickable: !!this.props.onRowClick}, this.props)}>
+      <div {...style('root', {isRowClickable: !!this.props.onRowClick}, this.props)}>
         {children}
       </div>) :
       children;
