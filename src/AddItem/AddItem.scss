@@ -82,6 +82,7 @@
 .disabled {
   background-color: $S50;
   color: $D55;
+  cursor: auto;
   &.dashes {
     border: dashed 1px $D55;
   }
