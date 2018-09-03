@@ -57,9 +57,7 @@ describe('AddItem', () => {
   describe('`onClick` prop', () => {
     it('should call onClick when clicked', () => {
       const onClick = jest.fn();
-      const driver = createDriver(
-        renderAddItem({onClick, tooltipContent: 'll', theme: 'image'})
-      );
+      const driver = createDriver(renderAddItem({onClick, theme: 'image'}));
       driver.click();
       expect(onClick).toHaveBeenCalled();
     });

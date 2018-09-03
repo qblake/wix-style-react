@@ -35,10 +35,10 @@ describe('AddItem', () => {
   });
 
   describe(`'alignItems' prop`, () => {
-    ['center', 'left', 'right'].map(alignItems =>
+    ['', 'left', 'right'].map(alignItems =>
       eyes.it(`should render with value ${alignItems}`, async () => {
         await autoExampleDriver.setProps({
-          alignItems: alignItems === 'center' ? '' : alignItems
+          alignItems
         });
         const driver = addItemTestkitFactory({
           dataHook: storySettings.dataHook
@@ -49,11 +49,10 @@ describe('AddItem', () => {
   });
 
   describe(`'theme' prop`, () => {
-    ['dashes', 'filled', 'plain', 'image'].map(theme =>
+    ['', 'filled', 'plain', 'image'].map(theme =>
       eyes.it(`should render with theme ${theme}`, async () => {
         await autoExampleDriver.setProps({
-          disabled: true,
-          theme: theme === 'dashes' ? '' : theme
+          theme
         });
         const driver = addItemTestkitFactory({
           dataHook: storySettings.dataHook
@@ -64,10 +63,10 @@ describe('AddItem', () => {
   });
 
   describe(`'size' prop`, () => {
-    ['large', 'medium', 'small', 'tiny'].map(size =>
+    ['large', 'medium', 'small', ''].map(size =>
       eyes.it(`should render with ${size} icon`, async () => {
         await autoExampleDriver.setProps({
-          size: size === 'tiny' ? undefined : size
+          size
         });
         const driver = addItemTestkitFactory({
           dataHook: storySettings.dataHook
