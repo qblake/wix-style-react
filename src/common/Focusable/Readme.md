@@ -1,6 +1,6 @@
 # `withFocusable`
 
-Use this HOC to apply wix focus functionality and styling.
+Simple HOC to add focus functionality for your component.
 
 ## Usage
 
