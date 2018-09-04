@@ -1,6 +1,7 @@
 import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
 import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
 import buttonDriverFactory from '../Backoffice/Button/Button.driver.js';
+import {INTERNAL_DRIVER_SYMBOL} from '../../test/utils/private-drivers';
 
 const tableActionCellDriverFactory = ({element}) => {
   const getPrimaryActionPlaceholder = () => element.querySelector('[data-hook="table-action-cell-placeholder"]');
@@ -34,8 +35,6 @@ const tableActionCellDriverFactory = ({element}) => {
     element: () => element,
     /** Whether the element exists */
     exists: () => !!element,
-    /** Whether the primary action placeholder exists */
-    primaryActionPlaceholderExists: () => !!getPrimaryActionPlaceholder(),
     /** Get the driver of the primary action <Button/> from the action column */
     getPrimaryActionButtonDriver,
     /** Click the primary action button from the action column */
@@ -55,7 +54,13 @@ const tableActionCellDriverFactory = ({element}) => {
     /** Click on the hidden secondary actions <PopoverMenu/> */
     clickPopoverMenu: () => getHiddenActionsPopoverMenuDriver().click(),
     /** Click on a hidden secondary action (requires the <PopoverMenu/> to be open) */
-    clickHiddenAction: actionIndex => getHiddenActionsPopoverMenuDriver().menu.clickItemAt(actionIndex)
+    clickHiddenAction: actionIndex => getHiddenActionsPopoverMenuDriver().menu.clickItemAt(actionIndex),
+
+    /* Private driver */
+    [INTERNAL_DRIVER_SYMBOL]: {
+      /** Whether the primary action placeholder exists */
+      primaryActionPlaceholderExists: () => !!getPrimaryActionPlaceholder()
+    }
   };
 };
 

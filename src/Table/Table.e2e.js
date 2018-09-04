@@ -3,6 +3,7 @@ import eyes from 'eyes.it';
 import {tableTestkitFactory, tableActionCellTestkitFactory} from '../../testkit/protractor';
 import {waitForVisibilityOf, scrollToElement} from 'wix-ui-test-utils/protractor';
 import {createStoryUrl} from '../../test/utils/storybook-helpers';
+import {flattenInternalDriver} from '../../test/utils/private-drivers';
 import {storySettings} from '../../stories/Table/storySettings';
 
 describe('Table', () => {
@@ -13,7 +14,7 @@ describe('Table', () => {
     const driver = tableTestkitFactory({dataHook});
     await waitForVisibilityOf(driver.element, 'Can not find Table Component');
     await scrollToElement(driver.element);
-    return driver;
+    return flattenInternalDriver(driver);
   };
 
   it('should be able to use DataTable driver methods', async () => {

@@ -1,4 +1,6 @@
+import {mouseEnter} from 'wix-ui-test-utils/protractor';
 import dataTableDriverFactory from '../DataTable/DataTable.protractor.driver';
+import {INTERNAL_DRIVER_SYMBOL} from '../../test/utils/private-drivers';
 
 const rowByIndex = (component, index) => component.$$('tbody tr').get(index);
 
@@ -8,8 +10,12 @@ const tableDriverFactory = component => ({
 
   /** Get a row element */
   getRow: index => rowByIndex(component, index),
-  /** Hover a specific row with the mouse */
-  hoverRow: index => browser.actions().mouseMove(rowByIndex(component, index)).perform()
+
+  /** Private driver */
+  [INTERNAL_DRIVER_SYMBOL]: {
+    /** Hover a specific row with the mouse */
+    hoverRow: index => mouseEnter(rowByIndex(component, index))
+  }
 });
 
 export default tableDriverFactory;

@@ -8,6 +8,7 @@ import TableActionCell from './TableActionCell';
 import tableActionCellDriverFactory from './TableActionCell.driver';
 import {tableActionCellTestkitFactory} from '../../testkit';
 import {tableActionCellTestkitFactory as enzymeTableActionCellTestkitFactory} from '../../testkit/enzyme';
+import {flattenInternalDriver} from '../../test/utils/private-drivers';
 
 const primaryActionProps = (actionTrigger = () => {}) => ({
   primaryAction: {
@@ -32,7 +33,9 @@ const secondaryActionsProps = (actionTriggers = []) => {
 
 
 describe('Table Action Cell', () => {
-  const createDriver = createDriverFactory(tableActionCellDriverFactory);
+  const createDriver = (...args) => flattenInternalDriver(
+    createDriverFactory(tableActionCellDriverFactory)(...args)
+  );
 
   it('should have a placeholder when there\'s only a primary action', () => {
     const driver = createDriver(<TableActionCell {...primaryActionProps()}/>);
@@ -63,11 +66,6 @@ describe('Table Action Cell', () => {
 
     driver.clickPrimaryActionButton();
     expect(onPrimaryActionTrigger).toHaveBeenCalledTimes(1);
-  });
-
-  it('should display the action column for secondary actions', () => {
-    const driver = createDriver(<TableActionCell {...secondaryActionsProps()}/>);
-    expect(driver.exists()).toBeTruthy();
   });
 
   it('should not have a primary action placeholder when there are also secondary actions', () => {
@@ -180,7 +178,7 @@ describe('testkit', () => {
     </div>));
 
     const actionCellTextkit = tableActionCellTestkitFactory({wrapper, dataHook});
-    expect(actionCellTextkit.primaryActionPlaceholderExists()).toBeTruthy();
+    expect(actionCellTextkit.getPrimaryActionButtonDriver()).toBeTruthy();
   });
 });
 
@@ -189,6 +187,6 @@ describe('enzyme testkit', () => {
     const dataHook = 'table-action-cell';
     const wrapper = mount(<TableActionCell dataHook={dataHook} {...primaryActionProps()}/>);
     const actionCellTextkit = enzymeTableActionCellTestkitFactory({wrapper, dataHook});
-    expect(actionCellTextkit.primaryActionPlaceholderExists()).toBeTruthy();
+    expect(actionCellTextkit.getPrimaryActionButtonDriver()).toBeTruthy();
   });
 });

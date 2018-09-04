@@ -6,7 +6,6 @@
 |--------|-----------|----------------|-------------|
 | `element` | - | `element` | Get the element |
 | `exists` | - | `bool` | Whether the element exists |
-| `primaryActionPlaceholderExists` | - | `element` | Whether the primary action placeholder exists |
 | `getPrimaryActionButtonDriver` | - | ButtonDriver | Get the driver of the primary action `<Button/>` from the action column |
 | `clickPrimaryActionButton` | - | - | Click the primary action button from the action column |
 | `getVisibleActionsCount` | - | `number` | Get the number of the visible secondary actions |
