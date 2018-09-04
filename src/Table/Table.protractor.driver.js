@@ -8,13 +8,13 @@ const tableDriverFactory = component => ({
   ...dataTableDriverFactory(component),
   element: component,
 
-  /** Get a row element */
-  getRow: index => rowByIndex(component, index),
+  /** Hover a specific row with the mouse */
+  hoverRow: index => mouseEnter(rowByIndex(component, index)),
 
   /** Private driver */
   [INTERNAL_DRIVER_SYMBOL]: {
-    /** Hover a specific row with the mouse */
-    hoverRow: index => mouseEnter(rowByIndex(component, index))
+    /** Get a row element */
+    getRow: index => rowByIndex(component, index)
   }
 });
 
