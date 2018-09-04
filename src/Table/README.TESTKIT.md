@@ -43,7 +43,6 @@
 | clickRowByIndex | number | - | click row index <number> |
 | getRowTextByIndex | number | string | get row index <number> text |
 | element | - | element | get the actual element |
-| getRow | (index) | element | Get a row element |
 | hoverRow | (index) | element | Hover a specific row with the mouse |
 
 ### Puppeteer
