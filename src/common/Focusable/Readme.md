@@ -1,11 +1,11 @@
-# `FocusableHOC`
+# `withFocusable`
 
-Use this HOC to spread the focusable focus states onto the a component's root element.
+Use this HOC to apply wix focus functionality and styling.
 
 ## Usage
 
 1. Wrap your component with `withFocusable` hoc.
-2. Pass `focusableOnFocus`, `focusableOnBlur` from props to component and `focusableState` aswell.
+2. Pass `focusableOnFocus`, `focusableOnBlur` from props to component and spread `focusableState` focus states.
 
 ```jsx
 import { withFocusable, focusableStates } from "../common/Focusable";
@@ -19,7 +19,7 @@ import { withFocusable, focusableStates } from "../common/Focusable";
 export default withFocusable(Component);
 ```
 
-3. In `.scss` file make sure to include focus styles as in example.
+3. In `.scss` file include focus styles.
 
 ```scss
 @import "../common.scss";
@@ -81,7 +81,7 @@ export default DriverFactory;
 
 1. Focus effect does not appear on my `div`. Why?
 
-By default focusable hoc will only work on focusable html elements like `button`, `input` etc. In order to enable this on div make sure to pass `tabindex` to your component with value `0`. Read more https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
+Focusable hoc will only work on focusable html elements like `button`, `input` etc. In order to enable this on div make sure to pass `tabindex` to your component with value `0`. Read more https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
 
 ```jsx
 import { withFocusable, focusableStates } from "../common/Focusable";
