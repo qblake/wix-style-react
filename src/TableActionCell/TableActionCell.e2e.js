@@ -36,7 +36,7 @@ describe('Table Action Cell', () => {
   });
 
   Object.entries(examples).forEach(([name, dataHook]) => {
-    it(`should render correctly for ${name}`, async () => {
+    eyes.it(`should render correctly for ${name}`, async () => {
       await verifyItem(dataHook);
     });
   });
