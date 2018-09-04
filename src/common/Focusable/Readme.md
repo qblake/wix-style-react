@@ -1,6 +1,6 @@
 # `withFocusable`
 
-Simple HOC to add focus functionality for your component.
+Simple HOC to add focus functionality.
 
 ## Usage
 
