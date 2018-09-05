@@ -75,9 +75,10 @@ describe('Backoffice Button', () => {
     ['x-small', 'small', 'medium', 'large', 'x-large'].forEach(height => {
       [false, true].forEach(hover => {
         const props = {height, hover};
-        eyes.it(`should display all themes with props=${JSON.stringify(props)}`, async () => {
+        it(`should display all themes with props=${JSON.stringify(props)}`, async () => {
           const storyUrl = getStoryUrl(`${TESTS_PREFIX}/5. Buttons`, '5.0 ButtonLayout');
           await browser.get(`${storyUrl}&${queryString.stringify(props)}`);
+          await eyes.checkWindow(`props=${JSON.stringify(props)}`);
         });
       });
     });
