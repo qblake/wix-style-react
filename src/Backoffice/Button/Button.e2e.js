@@ -1,5 +1,6 @@
 import React from 'react';
 import eyes from 'eyes.it';
+import queryString from 'querystring';
 import {buttonTestkitFactory} from '../../../testkit/protractor';
 import {waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {getStoryUrl} from '../../../test/utils/storybook-helpers';
@@ -70,10 +71,16 @@ describe('Backoffice Button', () => {
 
   });
 
-  describe('all themes', () => {
-    eyes.it('should display all theme variants', async () => {
-      const storyUrl = getStoryUrl(`${TESTS_PREFIX}/5. Buttons`, '5.0 ButtonLayout');
-      await browser.get(storyUrl);
+  describe('render variations', () => {
+    ['x-small', 'small', 'medium', 'large', 'x-large'].forEach(height => {
+      [false, true].forEach(hover => {
+        eyes.it('should display all variants', async () => {
+          const storyUrl = getStoryUrl(`${TESTS_PREFIX}/5. Buttons`, '5.0 ButtonLayout');
+          const props = {height, hover};
+          console.log('props=', props);
+          await browser.get(`${storyUrl}&${queryString.stringify(props)}`);
+        });
+      });
     });
   });
 
