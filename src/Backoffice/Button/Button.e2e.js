@@ -1,6 +1,6 @@
 import React from 'react';
 import eyes from 'eyes.it';
-import queryString from 'querystring';
+import queryString from 'query-string';
 import {buttonTestkitFactory} from '../../../testkit/protractor';
 import {waitForVisibilityOf} from 'wix-ui-test-utils/protractor';
 import {getStoryUrl} from '../../../test/utils/storybook-helpers';

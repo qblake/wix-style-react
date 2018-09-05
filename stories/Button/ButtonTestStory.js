@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
-import queryString from 'querystring';
+import queryString from 'query-string';
 import pick from 'lodash/pick';
 import {TESTS_PREFIX} from '../../stories/storyCategories';
 import Button from 'wix-style-react/Button';
